@@ -1,6 +1,6 @@
 {
     "name": "flightsadmin/crudgenerator",
-    "description": "Crud Generator automatically generates all necessary files for a complete crud. This includes factories, migrations, models, blades, requests & seeders. This package also has the possibility to create relations between models.",
+    "description": "Crud Generator automatically generates all necessary files for a complete crud. This includes livewire component, factories, migrations, models, blades & seeders.",
     "license": "MIT",
     "authors": [
         {
