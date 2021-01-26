@@ -1,0 +1,40 @@
+{
+    "name": "flightsadmin/crudgenerator",
+    "description": "Crud Generator automatically generates all necessary files for a complete crud. This includes factories, migrations, models, blades, requests & seeders. This package also has the possibility to create relations between models.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Chitechi",
+            "email": "george@flightsadmin.com"
+        }
+    ],
+    "homepage": "https://github.com/flightsadmin/crudgenerator",
+    "keywords": ["Laravel", "Flightsadmin", "CrudGenerator"],
+    "require": {
+        "illuminate/support": "~5|^6|^7|^8",
+        "livewire/livewire":"^1|^2",
+        "laravel/ui":"^2|^3"
+		
+    },
+    "require-dev": { },
+    "autoload": {
+        "psr-4": {
+            "Flightsadmin\\CrudGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flightsadmin\\CrudGenerator\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Flightsadmin\\CrudGenerator\\CrudGeneratorServiceProvider"
+            ],
+            "aliases": {
+                "CrudGenerator": "Flightsadmin\\CrudGenerator\\Facades\\CrudGenerator"
+            }
+        }
+    }
+}

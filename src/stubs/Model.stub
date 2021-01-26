@@ -1,0 +1,18 @@
+<?php 
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class {{modelName}} extends Model
+{
+	use HasFactory;
+	
+    public $timestamps = true;
+    protected $dates = ['date', 'created_at', 'updated_at'];
+
+    protected $table = '{{modelNamePluralLowerCase}}';
+
+    protected $fillable = [{{fields}}];
+}

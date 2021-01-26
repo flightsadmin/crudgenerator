@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    @foreach(${{modelNamePluralLowerCase}} as $row)
+    <div class="rounded border p-2 my-1">
+        <div class="flex justify-between align-items-center my-1">
+            <div class="d-flex justify-content-between">
+	            <div class="container">
+		        	<div class="row">
+{{dataBody}}
+					</div>
+				</div>
+
+				<span>
+					@if ($row->updated_at < Carbon\Carbon::now())
+					<small>Updated: {{$row->updated_at->diffForHumans()}}</small> <i class="fa fa-check-circle text-success"></i>
+					@elseif ($row->updated_at >= Carbon\Carbon::now())
+					<small>Updated: {{$row->updated_at->diffForHumans()}}</small> <i class="fa fa-times-circle text-warning"></i>
+					@endif
+				</span>
+				<span>
+					<div class="btn-group">
+						<button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Actions
+						</button>
+						<div class="dropdown-menu dropdown-menu-right">
+						<a data-toggle="modal" data-target="#updateModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Edit </a>							 
+						<a class="dropdown-item" onclick="confirm('Confirm Delete Bag id {{$row->id}}? \nDeleted {{modelName}} cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a>   
+						</div>
+					</div>
+				</span>
+            </div>
+        </div>
+    </div>
+    @endforeach
+	{{${{modelNamePluralLowerCase}}->links()}}
+</div>
