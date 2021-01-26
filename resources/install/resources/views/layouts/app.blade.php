@@ -34,7 +34,8 @@
             @yield('content')
         </div>
         <!-- Footer -->
-    @include('layouts.footer')
+    <div>
+        @include('layouts.footer')
     </div>
     <!-- ./wrapper -->
     @endguest 
