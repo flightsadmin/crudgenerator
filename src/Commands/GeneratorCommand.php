@@ -225,9 +225,8 @@ class GeneratorCommand extends Command
                 }, $this->fillables)),
                 implode(PHP_EOL, array_map(function ($item) {
 					if ($item['preset']["input"] !=='textarea') {
-						return "\t\t\t\t\t\t".'<div class="mx-3">'."\n\t\t\t\t\t\t\t".'<small>' . ucwords($item["field"]) . '</small>'."\n\t\t\t\t\t\t\t".'<p>{{$row->' . $item["field"] . '}}</p>'."\n\t\t\t\t\t\t".'</div>';
+						return "\t\t\t\t\t\t".'<div class="mx-3">'."\n\t\t\t\t\t\t\t".'<small>' . ucwords(str_replace('_', ' ', ($item['field']))) . '</small>'."\n\t\t\t\t\t\t\t".'<p>{{$row->' . $item["field"] . '}}</p>'."\n\t\t\t\t\t\t".'</div>';
 					} 
-
                 }, $this->fillables))
             ],
             $this->getStub('views/view')
