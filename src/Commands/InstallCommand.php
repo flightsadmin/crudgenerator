@@ -25,7 +25,7 @@ class InstallCommand extends Command
 		(new Filesystem)->ensureDirectoryExists(app_path('Models'));
 		(new Filesystem)->ensureDirectoryExists(resource_path('views/livewire'));
 		
-        if ($this->ask('This will delete compiled assets in public folder. It will Re-Compile afterwards. Do you want to proceed?') == 'yes') {        
+        if ($this->confirm('This will delete compiled assets in public folder. It will Re-Compile afterwards. Do you want to proceed?') == 'yes') {        
 			if ($this->confirm('Do you want to scaffold Authentication files? Only skip if you have authentication system on your App') == 'yes') {
 					Artisan::call('ui:auth', [], $this->getOutput());
 			}
