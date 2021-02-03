@@ -55,21 +55,24 @@ class InstallCommand extends Command
         $this->generateFiles();
 		
 		$this->line('');
-		$this->warn('Running: <info>npm install && npm run dev</info> Please wait...');
-		$this->line('');
 
-		exec('npm install && npm run dev');
+        if ($this->confirm('Do you want to run npm install && npm run dev ?') == 'yes') {        
+            $this->warn('Running: <info>npm install && npm run dev</info> Please wait...');
+            $this->line('');
 
-        $this->info('Installation Complete, few seconds please, let us optimize your site');
-        $this->warn('');
-        $this->warn('Removing Dumped node_modules files. Please wait...');
-		
-		tap(new Filesystem, function ($npm) {
-            $npm->deleteDirectory(base_path('node_modules'));
-            $npm->delete(base_path('yarn.lock'));
-            $npm->delete(base_path('package-lock.json'));
-        });
-        $this->info('node_modules files Removed');
+            exec('npm install && npm run dev');
+
+            $this->info('Installation Complete, few seconds please, let us optimize your site');
+            $this->warn('');
+            $this->warn('Removing Dumped node_modules files. Please wait...');
+            
+            tap(new Filesystem, function ($npm) {
+                $npm->deleteDirectory(base_path('node_modules'));
+                $npm->delete(base_path('yarn.lock'));
+                $npm->delete(base_path('package-lock.json'));
+            });
+            $this->info('node_modules files Removed');
+        }
         $this->info('');
         $this->warn('All set, run <info>php artisan crud:generate {table-name}</info> to build your CRUD');		
 	  }

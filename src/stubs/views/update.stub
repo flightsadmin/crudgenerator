@@ -14,9 +14,9 @@
 {{form}}
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" wire:click.prevent="update()" class="btn btn-primary" data-dismiss="modal">Update {{modelName}}</button>
+            <div class="modal-footer d-flex justify-content-between align-items-center">
+                <button wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button wire:click.prevent="update()" class="btn btn-primary" data-dismiss="modal">Update {{modelName}}</button>
             </div>
        </div>
     </div>
