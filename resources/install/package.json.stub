@@ -10,10 +10,10 @@
         "production": "mix --production"
     },
     "devDependencies": {
-		"@fortawesome/fontawesome-free": "^5.15.1",
+	"@fortawesome/fontawesome-free": "^5.15",
         "axios": "^0.21",
         "bootstrap": "^4.5.3",
-        "admin-lte": "^3.0",
+        "admin-lte": "^3.1",
         "postcss": "^8.1.14",
         "cross-env": "^7.0",
         "jquery": "^3.5.1",
