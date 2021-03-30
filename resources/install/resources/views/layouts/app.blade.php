@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,28 +20,29 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      @livewireStyles
 </head>
-<body class="hold-transition sidebar-mini">
-    @guest 
-    @include('layouts.guest')    
-    @else
 
-    <div class="wrapper" id="app">
-        <!-- Header -->
-    @include('layouts.header')
-        <!-- Sidebar -->
-    @include('layouts.sidebar') 
-        <div class="content-wrapper">
-            @yield('content')
+<body class="hold-transition sidebar-mini layout-fixed">
+    @guest 
+        @include('layouts.guest')    
+    @else
+        <div class="wrapper">
+            <!-- Header -->
+            @include('layouts.header')
+
+            <!-- Sidebar -->
+            @include('layouts.sidebar')
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <section class="content">
+                        @yield('content')
+                    </section>
+                </div>
+            @include('layouts.footer')
         </div>
-        <!-- Footer -->
-    <div>
-        @include('layouts.footer')
-    </div>
-    <!-- ./wrapper -->
     @endguest 
 
-    @livewireScripts
-    
+    <!-- Scripts -->
+    @livewireScripts    
     <script type="text/javascript">
         window.livewire.on('closeModal', () => {
             $('#exampleModal').modal('hide');
